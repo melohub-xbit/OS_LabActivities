@@ -30,7 +30,6 @@ int main() {
         printf("No input received. Exiting.\n");
     } else {
         printf("Input available! Reading...\n");
-        // read input
         char inp[1000];
         read(STDIN_FILENO, inp, sizeof(inp));
         printf("Input: %s", inp);

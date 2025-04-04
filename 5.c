@@ -3,10 +3,10 @@ Student Name: Velidanda Krishna Sai; Register Number: IMT2023094
 Date:
 Description: This program creates infinite txt files, named as file_1.txt and so on, every 3s
 The file descriptors of each created file are stored, and printed after creating each file
-It creates 60 files, and the FD's of the files are visible under /proc/PID of process of this program/fd
+It creates 10 files, and the FD's of the files are visible under /proc/PID of process of this program/fd
 
 a new fd is added and seen every 3s
-after 60 files are created, it sleeps for 30s to check fds of the files that were created and opened, and then closes all the fds
+after 10 files are created, it sleeps for 30s to check fds of the files that were created and opened, and then closes all the fds
 
 */
 
@@ -37,7 +37,7 @@ int main() {
 
         count++;
 
-        if (count > 60) {
+        if (count > 10) {
             sleep(30);
             break;
         }
