@@ -11,7 +11,8 @@ Description: This program obtains the scheduling policy and modifies it (e.g., S
 #include <unistd.h>
 
 int main() {
-    int policy = sched_getscheduler(0);  // 0 means current process
+    // 0 means current process
+    int policy = sched_getscheduler(0);
     
     printf("Current scheduling policy: ");
     switch(policy) {
@@ -36,7 +37,6 @@ int main() {
     
     printf("Scheduler changed to SCHED_FIFO\n");
     
-    // Verify the change
     policy = sched_getscheduler(0);
     printf("New scheduling policy: ");
     switch(policy) {

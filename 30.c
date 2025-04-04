@@ -22,9 +22,6 @@ int main() {
     if (pid == 0) {
         umask(0);  // Reset file mode mask
         setsid();  // Create a new session
-        close(STDIN_FILENO);
-        close(STDOUT_FILENO);
-        close(STDERR_FILENO);
                 
         while (1) {
             time_t now = time(NULL);
@@ -32,7 +29,10 @@ int main() {
             
             // Run at 1:00 PM (13:00 in 24-hour format)
             if (t->tm_hour == 13 && t->tm_min == 00) {
-                system("task.sh");
+                FILE *file = fopen("daemon.txt", "w");
+                fprintf(file, "Hello Daemon");
+                fclose(file);
+                sleep(61);
             }
             sleep(60);
         }
